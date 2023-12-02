@@ -1,0 +1,15 @@
+---
+- name: Install OpenStack packages
+  apt:
+    name: "{{ item }}"
+    state: present
+  loop:
+    - python3-openstackclient
+    - openstack-dashboard
+    - nova-compute
+    - neutron-linuxbridge-agent
+    - neutron-dhcp-agent
+    - neutron-metadata-agent
+    - neutron-l3-agent
+  become: true
+  become_method: sudo

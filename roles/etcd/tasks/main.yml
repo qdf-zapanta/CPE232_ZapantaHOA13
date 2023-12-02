@@ -1,0 +1,7 @@
+---
+- name: Install Etcd
+  apt:
+    name: etcd
+    state: present
+  become: true
+  become_method: sudo

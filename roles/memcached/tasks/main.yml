@@ -1,0 +1,7 @@
+---
+- name: Install Memcached
+  apt:
+    name: memcached
+    state: present
+  become: true
+  become_method: sudo

@@ -1,0 +1,10 @@
+---
+- name: Install SQL Database (example with MySQL)
+  apt:
+    name: "{{ item }}"
+    state: present
+  loop:
+    - mysql-server
+    - python3-pymysql
+  become: true
+  become_method: sudo

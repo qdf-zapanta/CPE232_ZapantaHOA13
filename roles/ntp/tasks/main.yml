@@ -1,0 +1,7 @@
+---
+- name: Ensure NTP is installed and running
+  apt:
+    name: ntp
+    state: present
+  become: true
+  become_method: sudo

@@ -1,0 +1,24 @@
+---
+- name: OpenStack Installation
+  hosts: all
+  become: true
+  vars:
+    openstack_controller_group: controller
+    openstack_compute_group: compute
+
+  pre_tasks:
+    - name: Check if the OS is Ubuntu
+      fail:
+        msg: "This playbook is intended for Ubuntu servers only."
+      when: "ansible_distribution != 'Ubuntu'"
+
+    - name: Gather facts
+      setup:
+
+  roles:
+    - ntp
+    - openstack
+    - sqldatabase
+    - messagequeue
+    - memcached
+    - etcd
